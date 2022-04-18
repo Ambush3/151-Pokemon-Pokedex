@@ -1,0 +1,72 @@
+body {
+    background-color:  rgb(237, 30,36);
+    color: white;
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+}
+
+.container {
+    padding: 40px;
+    margin: 0 auto;
+
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 54px;
+}
+
+#pokedex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding-inline-start: 0;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.card {
+    list-style: none;
+    padding: 40px;
+    background-color: #f4f4f4;
+    color: #222;
+    text-align: center;
+}
+
+.card:hover {
+    animation: bounce 0.5s linear;
+}
+
+.card-title {
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-weight: normal;
+}
+.card-subtitle {
+    margin-top: 10px;
+    color: #666;
+    font-weight: lighter;
+}
+
+.card-image {
+    height: 200px;
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+    40% {
+        transform: translateY(0px);
+    }
+
+    80% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
