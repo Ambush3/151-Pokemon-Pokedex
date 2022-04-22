@@ -6,16 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Pokedex</title>
-    <link rel="stylesheet" href="/Pokedex/styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
         <h1>Pokedex</h1>
-        <ul id="pokedex"></ul>
+        <form id="form">
+            <label id="search-label" for="search">Find Pokemon:</label>
+            <input id="search-pokemon" name="search" type="text" placeholder="search by type or name">
+        </form>
+        <ol id="pokedex"></ol>
     </div>
-    <script src="/Pokedex/main.js"></script>
+    <script src="/main.js"></script>
 </body>
 
 </html>
