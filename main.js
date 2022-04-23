@@ -1,5 +1,6 @@
 const charactersList = document.getElementById('pokedex');
-const searchBar = document.getElementById('search-pokemon'); // searchBar.addEventListener('keyup', (e) => {
+const searchBar = document.getElementById('search-pokemon');
+cachedPokemon = {};
 let pokemonCharacters = [];
 
 
@@ -38,10 +39,9 @@ const displayPokemon = (pokemons) => {
     const pokemonHTMLString = pokemons // create a variable that holds the pokemonHTMLString
         .map(
             (pokemon) => `
-        <li class="card">
+        <li class="card" onClick="selectPokemon(${pokemon.id})">
             <img class="card-image" src="${pokemon.image}"/>
             <h2 class="card-title">${pokemon.id}. ${pokemon.name}</h2>
-            <p class="card-subtitle">Type: ${pokemon.type}</p>
         </li>
     `
         )
@@ -49,4 +49,44 @@ const displayPokemon = (pokemons) => {
     pokedex.innerHTML = pokemonHTMLString;
 };
 
+const selectPokemon = async (id) => {
+    if (!cachedPokemon[id]) { // if the pokemon is not in the cache
+        const url = `https://pokeapi.co/api/v2/pokemon/${id}`; // grab the url
+        const res = await fetch(url); // fetch the url
+        const pokemon = await res.json(); // grab the json
+        cachedPokemon[id] = pokemon; // add the pokemon to the cache
+        displayPokemonPopup(pokemon); // display the pokemon
+    } else { // if the pokemon is in the cache
+        displayPokemonPopup(cachedPokemon[id]); // display the pokemon
+    }
+};
+
+const displayPokemonPopup = (pokemon) => { // display the pokemon
+    const type = pokemon.types.map((type) => type.type.name).join(', ');
+    const htmlString = `
+        <div class="popup">
+            <button id="closeBtn" onclick="closePopup()">Close</button>
+            <div class="card">
+                <img class="card-image" src="${pokemon.sprites['front_default']
+        }"/>
+                <h2 class="card-title">${pokemon.name}</h2>
+                <p><small>Type: ${type} | Height:</small> ${pokemon.height} | Weight: ${pokemon.weight
+        }</p>
+        <p>Abilities: ${pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
+            </div>
+        </div>
+    `;
+    pokedex.innerHTML = htmlString;
+};
+
+const closePopup = () => {
+    const popup = document.querySelector('.popup');
+    popup.parentElement.removeChild(popup);
+    displayPokemon(pokemonCharacters);
+};
+
+
 fetchPokemon();
+
+
+// create a drop down menu to choose different pokemon generations 
