@@ -116,7 +116,7 @@ body::-webkit-scrollbar-thumb {
     left: 20px;
     background-color: orangered;
     padding: 10px 20px;
-    border: none;
+    border: 1px solid darkred;
     color: white;
     border-radius: 3px;
     transition: transform 100ms;
@@ -138,4 +138,13 @@ button:hover {
 }
 
 
+.image { 
+    display: flex;
+    justify-content: center;
+}
 
+.pokedex-pic {
+    display: flex;
+    flex-wrap: wrap;
+    width: 20%;
+}
