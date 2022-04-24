@@ -148,3 +148,12 @@ button:hover {
     flex-wrap: wrap;
     width: 20%;
 }
+
+@media screen and (max-width: 700px) {
+    .pokedex-pic {
+        display: none;
+    }
+    .card {
+        margin-top: 120px;
+    }
+}
