@@ -31,7 +31,9 @@ h1 {
     background-color: #f4f4f4;
     color: #222;
     text-align: center;
+    border-radius: 20px;
 }
+
 
 .card:hover {
     animation: bounce 0.6s linear;
@@ -54,6 +56,7 @@ h1 {
 
 .card-image {
     height: 200px;
+    border-radius: 50%;
 }
 
 @keyframes bounce {
@@ -104,6 +107,16 @@ body::-webkit-scrollbar-thumb {
     background-color: lightgrey;
 }
 
+#search-version {
+    margin-top: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 200px;
+    padding: 5px;
+    background-color: lightgrey;
+}
+
+
 #search-pokemon:focus, #search-pokemon:hover{
     outline: none;
     border: 1px solid black;
@@ -148,6 +161,9 @@ button:hover {
     flex-wrap: wrap;
     width: 20%;
 }
+
+
+
 
 @media screen and (max-width: 700px) {
     .pokedex-pic {

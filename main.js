@@ -20,7 +20,7 @@ searchBar.addEventListener('keyup', (e) => {
 
 const fetchPokemon = () => {
     const promises = []; // create an empty array
-    for (let i = 1; i <= 151; i++) { // loop through the pokemon
+    for (let i = 1; i <= 898; i++) { // loop through the pokemon
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`; // grab the url
         promises.push(fetch(url).then((res) => res.json())); // push the promise into the array
     }
@@ -34,6 +34,7 @@ const fetchPokemon = () => {
         displayPokemon(pokemonCharacters); // display the pokemonCharacters
     });
 };
+
 
 const displayPokemon = (pokemons) => {
     const pokemonHTMLString = pokemons // create a variable that holds the pokemonHTMLString
@@ -78,6 +79,9 @@ const displayPokemonPopup = (pokemon) => { // display the pokemon
     `;
     pokedex.innerHTML = htmlString;
 };
+
+
+
 
 const closePopup = () => {
     const popup = document.querySelector('.popup');
